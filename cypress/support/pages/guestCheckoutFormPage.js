@@ -6,15 +6,20 @@ var city = '#guestFrm_city'
 var country = '#guestFrm_country_id'
 var zone = '#guestFrm_zone_id'
 var postcode = '#guestFrm_postcode'
-var continueButton = '.form-group .btn-orange'
-
-
-
+var continueButton = '.btn.btn-orange.pull-right.lock-on-click'
 
 export class GuestCheckoutFormPage{
 
     typeFirstName(text){
-        cy.get(firstName).type(text)
+        cy.get(firstName).clear().type(text).should('have.value', text)
+    }
+
+    checkFirstNameMessageError(visible, messageText){
+        if(visible == true){
+            cy.get(firstName).parents('.form-group').find('.help-block').should('contain', messageText)
+        }else {
+            cy.get(firstName).parents('.form-group.has-error').should('not.exist')
+        }
     }
 
     typeLastName(text){
@@ -22,7 +27,15 @@ export class GuestCheckoutFormPage{
     }
 
     typeEmail(text){
-        cy.get(email).type(text)
+        cy.get(email).clear().type(text).should('have.value', text)
+    }
+
+    checkEmailMessageError(visible, messageText){
+        if(visible == true){
+            cy.get(email).parents('.form-group').find('.help-block').should('contain', messageText)
+        }else {
+            cy.get(email).parents('.form-group.has-error').should('not.exist')
+        }
     }
 
     typeAddress_1(text){
@@ -39,6 +52,14 @@ export class GuestCheckoutFormPage{
 
     selectZone(text){
         cy.get(zone).select(text)
+    }
+
+    checkZoneMessageError(visible, messageText){
+        if(visible == true){
+            cy.get(zone).parents('.form-group').find('.help-block').should('contain', messageText)
+        }else {
+            cy.get(zone).parents('.form-group.has-error').should('not.exist')
+        }
     }
 
     typePostode(text){
