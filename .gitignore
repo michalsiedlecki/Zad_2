@@ -1,2 +1,4 @@
 *.mp4
 cypress/screenshots/
+package-lock.json
+node_modules
