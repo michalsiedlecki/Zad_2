@@ -12,11 +12,11 @@ export class CategoryMenuPage{
         cy.get(apparelAndAccessories).contains(category).click()   
     }
 
-    clickSubCategory(subCategory: string){
+    clickSubCategory(subCategory: string): void{
         cy.get(apparelAndAccessoriesCategory).contains(subCategory).click()
     }
 
-    clickAddToCart(){
+    clickAddToCart(): void{
         cy.get(addToCart).eq(0).click()
     }
 }

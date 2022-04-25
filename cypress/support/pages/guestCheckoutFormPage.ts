@@ -10,11 +10,11 @@ var continueButton = '.btn.btn-orange.pull-right.lock-on-click'
 
 export class GuestCheckoutFormPage{
 
-    typeFirstName(text: string){
+    typeFirstName(text: string): void{
         cy.get(firstName).clear().type(text).should('have.value', text)
     }
 
-    checkFirstNameMessageError(visible: boolean, messageText: string){
+    checkFirstNameMessageError(visible: boolean, messageText: string): void{
         if(visible == true){
             cy.get(firstName).parents('.form-group').find('.help-block').should('contain', messageText)
         }else {
@@ -22,15 +22,15 @@ export class GuestCheckoutFormPage{
         }
     }
 
-    typeLastName(text: string){
+    typeLastName(text: string): void{
         cy.get(lastName).type(text)
     }
 
-    typeEmail(text: string){
+    typeEmail(text: string): void{
         cy.get(email).clear().type(text).should('have.value', text)
     }
 
-    checkEmailMessageError(visible: boolean, messageText: string){
+    checkEmailMessageError(visible: boolean, messageText: string): void{
         if(visible == true){
             cy.get(email).parents('.form-group').find('.help-block').should('contain', messageText)
         }else {
@@ -38,23 +38,23 @@ export class GuestCheckoutFormPage{
         }
     }
 
-    typeAddress_1(text: string){
+    typeAddress_1(text: string): void{
         cy.get(address_1).type(text)
     }
 
-    typeCity(text: string){
+    typeCity(text: string): void{
         cy.get(city).type(text)
     }
 
-    selectCountry(text: string){
+    selectCountry(text: string): void{
         cy.get(country).select(text)
     }
 
-    selectZone(text: string){
+    selectZone(text: string): void{
         cy.get(zone).select(text)
     }
 
-    checkZoneMessageError(visible: boolean, messageText: string){
+    checkZoneMessageError(visible: boolean, messageText: string): void{
         if(visible == true){
             cy.get(zone).parents('.form-group').find('.help-block').should('contain', messageText)
         }else {
@@ -62,11 +62,11 @@ export class GuestCheckoutFormPage{
         }
     }
 
-    typePostode(text: string){
+    typePostode(text: string): void{
         cy.get(postcode).type(text)
     }
 
-    clickContinueButton(){
+    clickContinueButton(): void{
         cy.get(continueButton).click()
     }
 

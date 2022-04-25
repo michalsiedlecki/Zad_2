@@ -1,15 +1,15 @@
 var addToCart = '.cart'
 var selectSize = '#option352'
 export class ProductPage{
-    checkRadioButtonSize(size: string){
+    checkRadioButtonSize(size: string): void{
         cy.get(size).check()
     }
     
-    clickAddToCart(){
+    clickAddToCart(): void{
         cy.get(addToCart).click()
     }
 
-    selectSize(size: string){
+    selectSize(size: string): void{
         cy.get(selectSize).select(size)
     }
 

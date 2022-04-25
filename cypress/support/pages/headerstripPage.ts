@@ -4,19 +4,19 @@ var searchEngine = '#filter_keyword'
 var searchLogo = '.fa-search'
 
 export class HeaderstripPage{
-    typeTextIntoSearchEngine(text: string){
+    typeTextIntoSearchEngine(text: string): void{
         cy.get(searchEngine).type(text)
     }
 
-    checkNumberOfProducts(number: number){
+    checkNumberOfProducts(number: number): void{
         cy.get(numberOfProducts).should('contain', number)
     }
 
-    checkProductTotalCost(number: string){
+    checkProductTotalCost(number: string): void{
         cy.get(productTotalCost).should('contain', number)
     }
 
-    clickSearchLogo(){
+    clickSearchLogo(): void{
         cy.get(searchLogo).click()
     }
 }

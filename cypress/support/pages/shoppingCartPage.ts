@@ -3,15 +3,15 @@ var quantity = '.table-striped .align_center [type=text]'
 var update = '#cart_update'
 
 export class ShoppingCartPage{
-    clickCheckoutButton(){
+    clickCheckoutButton(): void{
         cy.get(checkoutButton).click()
     }
     
-    typeProductQuantity(number: string){
+    typeProductQuantity(number: string): void{
         cy.get(quantity).clear().type(number)
     }
 
-    updateShoppingCart(){
+    updateShoppingCart(): void{
         cy.get(update).click()
     }
 }
